@@ -153,32 +153,84 @@
     {
         
         //Add LineChart
-        UILabel * pieChartLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 90, SCREEN_WIDTH, 30)];
-        pieChartLabel.text = @"Pie Chart";
-        pieChartLabel.textColor = PNFreshGreen;
-        pieChartLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:23.0];
-        pieChartLabel.textAlignment = NSTextAlignmentCenter;
+//        UILabel * pieChartLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 90, SCREEN_WIDTH, 30)];
+//        pieChartLabel.text = @"Pie Chart";
+//        pieChartLabel.textColor = PNFreshGreen;
+//        pieChartLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:23.0];
+//        pieChartLabel.textAlignment = NSTextAlignmentCenter;
+//        
+//        
+//        
+//        NSArray *items = @[[PNPieChartDataItem dataItemWithValue:10 color:PNLightGreen],
+//                           [PNPieChartDataItem dataItemWithValue:20 color:PNFreshGreen description:@"WWDC"],
+//                           [PNPieChartDataItem dataItemWithValue:40 color:PNDeepGreen description:@"GOOL I/O"],
+//                           ];
+//        
+//        
+//        
+//        PNPieChart *pieChart = [[PNPieChart alloc] initWithFrame:CGRectMake(40.0, 155.0, 240.0, 240.0) items:items];
+//        pieChart.descriptionTextColor = [UIColor whiteColor];
+//        pieChart.descriptionTextFont  = [UIFont fontWithName:@"Avenir-Medium" size:14.0];
+//        pieChart.descriptionTextShadowColor = [UIColor clearColor];
+//        [pieChart strokeChart];
+//        
+//        
+//        [viewController.view addSubview:pieChartLabel];
+//        [viewController.view addSubview:pieChart];
+//        
+//        viewController.title = @"Pie Chart";
+        
+        // TESTING
+        UILabel * stackedBarChartLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 90, SCREEN_WIDTH, 30)];
+        stackedBarChartLabel.text = @"Stacked Bar Chart";
+        stackedBarChartLabel.textColor = PNFreshGreen;
+        stackedBarChartLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:23.0];
+        stackedBarChartLabel.textAlignment = NSTextAlignmentCenter;
         
         
-        
-        NSArray *items = @[[PNPieChartDataItem dataItemWithValue:10 color:PNLightGreen],
-                           [PNPieChartDataItem dataItemWithValue:20 color:PNFreshGreen description:@"WWDC"],
-                           [PNPieChartDataItem dataItemWithValue:40 color:PNDeepGreen description:@"GOOL I/O"],
+        NSInteger maxValue = 100;
+        NSArray *items = @[
+                           @[
+                               [PNStackedBarChartDataItem dataItemWithValue:10 maxValue:maxValue color:PNLightBlue],
+                               [PNStackedBarChartDataItem dataItemWithValue:5 maxValue:maxValue color:PNRed],
+                               [PNStackedBarChartDataItem dataItemWithValue:10 maxValue:maxValue color:PNLightGreen],
+                               [PNStackedBarChartDataItem dataItemWithValue:5 maxValue:maxValue color:[UIColor purpleColor]],
+                               [PNStackedBarChartDataItem dataItemWithValue:20 maxValue:maxValue color:[UIColor greenColor]],
+                               ],
+                           @[
+                               [PNStackedBarChartDataItem dataItemWithValue:5 maxValue:maxValue color:PNLightBlue],
+                               [PNStackedBarChartDataItem dataItemWithValue:5 maxValue:maxValue color:PNRed],
+                               [PNStackedBarChartDataItem dataItemWithValue:4 maxValue:maxValue color:PNLightGreen],
+                               [PNStackedBarChartDataItem dataItemWithValue:20 maxValue:maxValue color:[UIColor purpleColor]],
+                               [PNStackedBarChartDataItem dataItemWithValue:20 maxValue:maxValue color:[UIColor greenColor]],
+                               ],
+                           @[
+                               [PNStackedBarChartDataItem dataItemWithValue:10 maxValue:maxValue color:PNLightBlue],
+                               [PNStackedBarChartDataItem dataItemWithValue:5 maxValue:maxValue color:PNRed],
+                               [PNStackedBarChartDataItem dataItemWithValue:3 maxValue:maxValue color:PNLightGreen],
+                               [PNStackedBarChartDataItem dataItemWithValue:20 maxValue:maxValue color:[UIColor purpleColor]],
+                               [PNStackedBarChartDataItem dataItemWithValue:5 maxValue:maxValue color:[UIColor greenColor]],
+                               ],
+                           @[
+                               [PNStackedBarChartDataItem dataItemWithValue:8 maxValue:maxValue color:PNLightBlue],
+                               [PNStackedBarChartDataItem dataItemWithValue:5 maxValue:maxValue color:PNRed],
+                               [PNStackedBarChartDataItem dataItemWithValue:6 maxValue:maxValue color:PNLightGreen],
+                               [PNStackedBarChartDataItem dataItemWithValue:9 maxValue:maxValue color:[UIColor purpleColor]],
+                               [PNStackedBarChartDataItem dataItemWithValue:5 maxValue:maxValue color:[UIColor greenColor]],
+                               ],
                            ];
         
+//        PNStackedBar *stackedBar = [[PNStackedBar alloc] initWithFrame:CGRectMake(40.0, 155.0, 240.0, 240.0) items:items];
+//        [stackedBar strokeBar];
+//        [viewController.view addSubview:stackedBar];
+        self.stackedBarChart = [[PNStackedBarChart alloc] initWithFrame:CGRectMake(0, 135.0, SCREEN_WIDTH, 200.0) itemArrays:items];
+        [self.stackedBarChart setXLabels:@[@"SEP 1", @"SEP 2", @"Sep 3", @"Sep 4"]];
+        [self.stackedBarChart strokeChart];
+        self.stackedBarChart.delegate = self;
         
-        
-        PNPieChart *pieChart = [[PNPieChart alloc] initWithFrame:CGRectMake(40.0, 155.0, 240.0, 240.0) items:items];
-        pieChart.descriptionTextColor = [UIColor whiteColor];
-        pieChart.descriptionTextFont  = [UIFont fontWithName:@"Avenir-Medium" size:14.0];
-        pieChart.descriptionTextShadowColor = [UIColor clearColor];
-        [pieChart strokeChart];
-        
-        
-        [viewController.view addSubview:pieChartLabel];
-        [viewController.view addSubview:pieChart];
-        
-        viewController.title = @"Pie Chart";
+        [viewController.view addSubview:stackedBarChartLabel];
+        [viewController.view addSubview:self.stackedBarChart];
+        viewController.title = @"Stacked Bar";
         
     }
     
@@ -197,7 +249,7 @@
     
     NSLog(@"Click on bar %@", @(barIndex));
     
-    PNBar * bar = [self.barChart.bars objectAtIndex:barIndex];
+    PNStackedBar  *bar = [self.stackedBarChart.bars objectAtIndex:barIndex];
     
     CABasicAnimation *animation= [CABasicAnimation animationWithKeyPath:@"transform.scale"];
     
