@@ -18,11 +18,10 @@
 
 @implementation PNStackedBarChartDataItem
 
-+ (instancetype)dataItemWithValue:(CGFloat)value maxValue:(CGFloat)maxValue color:(UIColor *)color {
++ (instancetype)dataItemWithValue:(CGFloat)value color:(UIColor *)color {
     
     PNStackedBarChartDataItem *item = [PNStackedBarChartDataItem new];
     item.value = value;
-    item.maxValue = maxValue;
     item.color = color;
     return item;
 }

@@ -28,7 +28,6 @@ typedef NSString *(^PNyLabelFromatter)(CGFloat yLabelValue);
 @property (nonatomic, strong) NSMutableArray *bars;
 
 @property (nonatomic) CGFloat xLabelWidth;
-@property (nonatomic) int yValueMax;
 
 - (void)strokeChart;
 

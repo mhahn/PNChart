@@ -12,12 +12,9 @@
 // - maxYValue is 300 since that is the greatest some for any day, everything else should be in proportion to that value
 @interface PNStackedBarChartDataItem : NSObject
 
-+ (instancetype)dataItemWithValue:(CGFloat)value
-                         maxValue:(CGFloat)maxValue
-                            color:(UIColor*)color;
++ (instancetype)dataItemWithValue:(CGFloat)value color:(UIColor*)color;
 
 @property (nonatomic, readonly) CGFloat value;
-@property (nonatomic, readonly) CGFloat maxValue;
 @property (nonatomic, readonly) UIColor *color;
 
 @end

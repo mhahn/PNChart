@@ -14,6 +14,7 @@
 @property (nonatomic, readwrite) NSArray *items;
 @property (nonatomic) UIView *contentView;
 @property (nonatomic) CAShapeLayer *barLayer;
+@property (nonatomic, assign) float maxValue;
 
 - (void)loadDefault;
 
@@ -26,10 +27,11 @@
 
 @implementation PNStackedBar
 
-- (id)initWithFrame:(CGRect)frame items:(NSArray *)items {
+- (id)initWithFrame:(CGRect)frame items:(NSArray *)items withMaxValue:(float)maxValue {
     self = [super initWithFrame:frame];
     if (self) {
         _items = items;
+        _maxValue = maxValue;
     }
     return self;
 }
@@ -88,7 +90,7 @@
         currentItem = [self dataItemForIndex:i];
         currentTotal += currentItem.value;
         
-        CGFloat grade = currentTotal/currentItem.maxValue;
+        CGFloat grade = currentTotal/self.maxValue;
         CAShapeLayer *currentBarLayer = [self newBarLayerWithStrokeColor:currentItem.color grade:grade];
         [layers addObject:currentBarLayer];
     }
