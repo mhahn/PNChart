@@ -97,7 +97,6 @@
 
     // Add the layers in reverse order so the smaller layers don't get covered by the larger ones
     for (int i = (self.items.count - 1); i >= 0; i--) {
-        NSLog(@"adding sublayer: %d", i);
         [self.barLayer addSublayer:layers[i]];
     }
 }
