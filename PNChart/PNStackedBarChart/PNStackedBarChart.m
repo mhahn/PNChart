@@ -27,7 +27,8 @@
         _labelTextColor      = [UIColor grayColor];
         _labelFont           = [UIFont systemFontOfSize:11.0f];
         _itemArrays          = [NSArray arrayWithArray:itemArrays];
-        _labels              = [NSMutableArray array];
+        _labels              = [[NSMutableArray alloc] init];
+        _bars                = [[NSMutableArray alloc] init];
         _xLabelSkip          = 1;
         _labelMarginTop      = 0;
         _chartMargin         = 15.0;
