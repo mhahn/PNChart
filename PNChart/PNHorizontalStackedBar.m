@@ -39,29 +39,35 @@
 - (CAShapeLayer *)newBarLayerWithStrokeColor:(UIColor *)strokeColor grade:(CGFloat)grade {
     
     CAShapeLayer *bar = [CAShapeLayer layer];
+    
+    UIBezierPath *progressline = [UIBezierPath bezierPath];
+    [progressline moveToPoint:CGPointMake(0, 0)];
+    [progressline addLineToPoint:CGPointMake(self.frame.size.width * grade, 0)];
+    [progressline setLineWidth:1.0];
+    [progressline setLineCapStyle:kCGLineCapSquare];
+
     bar.lineCap = kCALineCapButt;
     bar.fillColor = [[UIColor whiteColor] CGColor];
     bar.lineWidth = self.frame.size.height;
-    
-    UIBezierPath *progressline = [UIBezierPath bezierPath];
-
-    [progressline moveToPoint:CGPointMake(0, 0)];
-    [progressline addLineToPoint:CGPointMake(self.frame.size.width * grade, 0)];
-    
-    [progressline setLineWidth:1.0];
-    [progressline setLineCapStyle:kCGLineCapSquare];
-    bar.path = progressline.CGPath;
     bar.strokeColor = [strokeColor CGColor];
+    bar.strokeEnd = 1.0;
+    bar.path = progressline.CGPath;
+    return bar;
+}
+
+- (void)maskChart {
     
+    CAShapeLayer *maskLayer = [self newBarLayerWithStrokeColor:[UIColor blackColor] grade:1.f];
+    
+    self.barLayer.mask = maskLayer;
     CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
     pathAnimation.duration = 1.0;
-    pathAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     pathAnimation.fromValue = @0.0f;
     pathAnimation.toValue = @1.0f;
-    [bar addAnimation:pathAnimation forKey:@"strokeEndAnimation"];
-    bar.strokeEnd = 1.0;
-    
-    return bar;
+    pathAnimation.delegate = self;
+    pathAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    pathAnimation.removedOnCompletion = YES;
+    [maskLayer addAnimation:pathAnimation forKey:@"strokeEndAnimation"];
 }
 
 - (PNStackedBarChartDataItem *)dataItemForIndex:(NSUInteger)index {
@@ -98,6 +104,9 @@
     for (int i = (self.items.count - 1); i >= 0; i--) {
         [self.barLayer addSublayer:layers[i]];
     }
+    
+    [self maskChart];
+    
 }
 
 @end
