@@ -13,7 +13,6 @@
 @interface PNStackedBarChart()
 
 @property (nonatomic, readwrite) NSArray *itemArrays;
-@property (nonatomic, strong) NSMutableArray *labels;
 
 @end
 

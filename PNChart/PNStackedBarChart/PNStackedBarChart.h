@@ -26,6 +26,7 @@ typedef NSString *(^PNyLabelFromatter)(CGFloat yLabelValue);
 @property (nonatomic, strong) NSArray *yLabels;
 @property (nonatomic, strong) NSArray *yValues;
 @property (nonatomic, strong) NSMutableArray *bars;
+@property (nonatomic, strong) NSMutableArray *labels;
 
 @property (nonatomic) CGFloat xLabelWidth;
 
