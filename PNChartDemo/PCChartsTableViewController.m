@@ -183,54 +183,25 @@
         
         // TESTING
         UILabel * stackedBarChartLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 90, SCREEN_WIDTH, 30)];
-        stackedBarChartLabel.text = @"Stacked Bar Chart";
+        stackedBarChartLabel.text = @"Horizontal Stacked Bar Chart";
         stackedBarChartLabel.textColor = PNFreshGreen;
         stackedBarChartLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:23.0];
         stackedBarChartLabel.textAlignment = NSTextAlignmentCenter;
         
         NSArray *items = @[
-                           @[
-                               [PNStackedBarChartDataItem dataItemWithValue:10 color:PNLightBlue],
-                               [PNStackedBarChartDataItem dataItemWithValue:5 color:PNRed],
-                               [PNStackedBarChartDataItem dataItemWithValue:10 color:PNLightGreen],
-                               [PNStackedBarChartDataItem dataItemWithValue:5 color:[UIColor purpleColor]],
-                               [PNStackedBarChartDataItem dataItemWithValue:20 color:[UIColor greenColor]],
-                               ],
-                           @[
-                               [PNStackedBarChartDataItem dataItemWithValue:10 color:PNLightBlue],
-                               [PNStackedBarChartDataItem dataItemWithValue:5 color:PNRed],
-                               [PNStackedBarChartDataItem dataItemWithValue:10 color:PNLightGreen],
-                               [PNStackedBarChartDataItem dataItemWithValue:5 color:[UIColor purpleColor]],
-                               [PNStackedBarChartDataItem dataItemWithValue:20 color:[UIColor greenColor]],
-                               ],
-                           @[
-                               [PNStackedBarChartDataItem dataItemWithValue:10 color:PNLightBlue],
-                               [PNStackedBarChartDataItem dataItemWithValue:5 color:PNRed],
-                               [PNStackedBarChartDataItem dataItemWithValue:10 color:PNLightGreen],
-                               [PNStackedBarChartDataItem dataItemWithValue:5 color:[UIColor purpleColor]],
-                               [PNStackedBarChartDataItem dataItemWithValue:20 color:[UIColor greenColor]],
-                               ],
-                           @[
-                               [PNStackedBarChartDataItem dataItemWithValue:10 color:PNLightBlue],
-                               [PNStackedBarChartDataItem dataItemWithValue:5 color:PNRed],
-                               [PNStackedBarChartDataItem dataItemWithValue:10 color:PNLightGreen],
-                               [PNStackedBarChartDataItem dataItemWithValue:5 color:[UIColor purpleColor]],
-                               [PNStackedBarChartDataItem dataItemWithValue:20 color:[UIColor greenColor]],
-                               ],
-
+                           [PNStackedBarChartDataItem dataItemWithValue:10 color:PNLightBlue],
+                           [PNStackedBarChartDataItem dataItemWithValue:10 color:PNLightGreen],
+                          [PNStackedBarChartDataItem dataItemWithValue:10 color:PNRed],
                            ];
-        
-//        PNStackedBar *stackedBar = [[PNStackedBar alloc] initWithFrame:CGRectMake(40.0, 155.0, 240.0, 240.0) items:items];
-//        [stackedBar strokeBar];
-//        [viewController.view addSubview:stackedBar];
-        self.stackedBarChart = [[PNStackedBarChart alloc] initWithFrame:CGRectMake(0, 135.0, SCREEN_WIDTH, 200.0) itemArrays:items];
-        [self.stackedBarChart setXLabels:@[@"SEP 1", @"SEP 2", @"Sep 3", @"Sep 4"]];
-        [self.stackedBarChart setYMaxValue:100.0];
-        [self.stackedBarChart strokeChart];
-        self.stackedBarChart.delegate = self;
+
+        self.horizontalStackedBarChart = [[PNHorizontalStackedBarChart alloc] initWithFrame:CGRectMake(25, 300, 200, 100) items:items];
+        [self.horizontalStackedBarChart setXLabels:@[@"10%", @"10%", @"10%"]];
+        [self.horizontalStackedBarChart setMaxValue:30.0];
+        [self.horizontalStackedBarChart strokeChart];
+        self.horizontalStackedBarChart.delegate = self;
         
         [viewController.view addSubview:stackedBarChartLabel];
-        [viewController.view addSubview:self.stackedBarChart];
+        [viewController.view addSubview:self.horizontalStackedBarChart];
         viewController.title = @"Stacked Bar";
         
     }
@@ -244,33 +215,33 @@
 -(void)userClickedOnLinePoint:(CGPoint)point lineIndex:(NSInteger)lineIndex{
     NSLog(@"Click on line %f, %f, line index is %d",point.x, point.y, (int)lineIndex);
 }
-
-- (void)userClickedOnBarCharIndex:(NSInteger)barIndex
-{
-    
-    NSLog(@"Click on bar %@", @(barIndex));
-    
-    PNStackedBar *bar = [self.stackedBarChart.bars objectAtIndex:barIndex];
-    
-    CABasicAnimation *animation= [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-    
-    animation.fromValue= @1.0;
-    
-    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    
-    animation.toValue= @1.1;
-    
-    animation.duration= 0.2;
-    
-    animation.repeatCount = 0;
-    
-    animation.autoreverses = YES;
-    
-    animation.removedOnCompletion = YES;
-    
-    animation.fillMode=kCAFillModeForwards;
-    
-    [bar.layer addAnimation:animation forKey:@"Float"];
-}
+//
+//- (void)userClickedOnBarCharIndex:(NSInteger)barIndex
+//{
+//    
+//    NSLog(@"Click on bar %@", @(barIndex));
+//    
+//    PNStackedBar *bar = [self.stackedBarChart.bars objectAtIndex:barIndex];
+//    
+//    CABasicAnimation *animation= [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+//    
+//    animation.fromValue= @1.0;
+//    
+//    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+//    
+//    animation.toValue= @1.1;
+//    
+//    animation.duration= 0.2;
+//    
+//    animation.repeatCount = 0;
+//    
+//    animation.autoreverses = YES;
+//    
+//    animation.removedOnCompletion = YES;
+//    
+//    animation.fillMode=kCAFillModeForwards;
+//    
+//    [bar.layer addAnimation:animation forKey:@"Float"];
+//}
 
 @end

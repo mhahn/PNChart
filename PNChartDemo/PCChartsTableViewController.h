@@ -13,6 +13,6 @@
 @interface PCChartsTableViewController : UITableViewController<PNChartDelegate>
 
 @property (nonatomic) PNBarChart * barChart;
-@property (nonatomic, strong) PNStackedBarChart *stackedBarChart;
+@property (nonatomic, strong) PNHorizontalStackedBarChart *horizontalStackedBarChart;
 
 @end

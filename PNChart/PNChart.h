@@ -19,4 +19,5 @@
 #import "PNPieChart.h"
 
 #import "PNStackedBarChart.h"
+#import "PNHorizontalStackedBarChart.h"
 #import "PNStackedBarChartDataItem.h"
