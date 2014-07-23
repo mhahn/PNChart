@@ -124,7 +124,14 @@
                 
             }
         }
-        bar = [[PNStackedBar alloc] initWithFrame:CGRectMake(barXPosition, self.frame.size.height - chartCavanHeight - xLabelHeight - self.chartMargin, barWidth, chartCavanHeight) items:items withMaxValue:self.yMaxValue];
+        
+        float currentTotal = 0;
+        for (PNStackedBarChartDataItem *item in items) {
+            currentTotal += item.value;
+        }
+
+        float barHeight = MIN(currentTotal, chartCavanHeight);
+        bar = [[PNStackedBar alloc] initWithFrame:CGRectMake(barXPosition, self.frame.size.height - barHeight - xLabelHeight - self.chartMargin, barWidth, barHeight) items:items withMaxValue:currentTotal];
         
         //Change Bar Radius
 //        bar.barRadius = _barRadius;
