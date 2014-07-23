@@ -197,6 +197,7 @@
         self.horizontalStackedBarChart = [[PNHorizontalStackedBarChart alloc] initWithFrame:CGRectMake(25, 300, 200, 100) items:items];
         [self.horizontalStackedBarChart setXLabels:@[@"10%", @"10%", @"10%"]];
         [self.horizontalStackedBarChart setMaxValue:30.0];
+        self.horizontalStackedBarChart.showLabel = NO;
         [self.horizontalStackedBarChart strokeChart];
         self.horizontalStackedBarChart.delegate = self;
         

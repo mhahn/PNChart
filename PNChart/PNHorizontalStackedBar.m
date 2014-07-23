@@ -41,7 +41,7 @@
     CAShapeLayer *bar = [CAShapeLayer layer];
     bar.lineCap = kCALineCapButt;
     bar.fillColor = [[UIColor whiteColor] CGColor];
-    bar.lineWidth = self.frame.size.height;
+    bar.lineWidth = self.frame.size.height * 2;
     
     UIBezierPath *progressline = [UIBezierPath bezierPath];
 
@@ -54,7 +54,7 @@
     bar.strokeColor = [strokeColor CGColor];
     
     CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-    pathAnimation.duration = 1.0;
+    pathAnimation.duration = 1.5;
     pathAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     pathAnimation.fromValue = @0.0f;
     pathAnimation.toValue = @1.0f;
