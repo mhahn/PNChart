@@ -14,5 +14,6 @@
 
 @property (nonatomic) PNBarChart * barChart;
 @property (nonatomic, strong) PNHorizontalStackedBarChart *horizontalStackedBarChart;
+@property (nonatomic, strong) PNTextChart *textChart;
 
 @end

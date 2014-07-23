@@ -21,3 +21,5 @@
 #import "PNStackedBarChart.h"
 #import "PNHorizontalStackedBarChart.h"
 #import "PNStackedBarChartDataItem.h"
+#import "PNTextChart.h"
+#import "PNTextChartLabelItem.h"

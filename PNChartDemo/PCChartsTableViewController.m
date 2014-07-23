@@ -188,22 +188,40 @@
         stackedBarChartLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:23.0];
         stackedBarChartLabel.textAlignment = NSTextAlignmentCenter;
         
-        NSArray *items = @[
-                           [PNStackedBarChartDataItem dataItemWithValue:10 color:PNLightBlue],
-                           [PNStackedBarChartDataItem dataItemWithValue:10 color:PNLightGreen],
-                          [PNStackedBarChartDataItem dataItemWithValue:10 color:PNRed],
-                           ];
-
-        self.horizontalStackedBarChart = [[PNHorizontalStackedBarChart alloc] initWithFrame:CGRectMake(25, 300, 200, 100) items:items];
-        [self.horizontalStackedBarChart setXLabels:@[@"10%", @"10%", @"10%"]];
-        [self.horizontalStackedBarChart setMaxValue:30.0];
-        self.horizontalStackedBarChart.showLabel = NO;
-        [self.horizontalStackedBarChart strokeChart];
-        self.horizontalStackedBarChart.delegate = self;
+        NSArray *topLabels = @[
+                               [PNTextChartLabelItem dataItemWithText:@"FOOD" font:nil textColor:[UIColor blueColor] textAlignment:NSTextAlignmentCenter labelHeight:20.f],
+                               [PNTextChartLabelItem dataItemWithText:@"BILLS" font:nil textColor:[UIColor yellowColor] textAlignment:NSTextAlignmentCenter labelHeight:20.f],
+                               ];
+        NSArray *bottomLabels = @[
+                                  [PNTextChartLabelItem dataItemWithText:@"50%" font:nil textColor:[UIColor blackColor] textAlignment:NSTextAlignmentCenter labelHeight:20.f],
+                                  [PNTextChartLabelItem dataItemWithText:@"50%" font:nil textColor:[UIColor blackColor] textAlignment:NSTextAlignmentCenter labelHeight:20.f],
+                                  ];
+        self.textChart = [[PNTextChart alloc] initWithFrame:CGRectMake(25, 300, 200, 100)];
+        [self.textChart setTopLabels:topLabels];
+        [self.textChart setBottomLabels:bottomLabels];
+        [self.textChart setTopLabelWidth:50.f];
+        [self.textChart setBottomLabelWidth:50.f];
+        [self.textChart strokeChart];
         
-        [viewController.view addSubview:stackedBarChartLabel];
-        [viewController.view addSubview:self.horizontalStackedBarChart];
-        viewController.title = @"Stacked Bar";
+        [viewController.view addSubview:self.textChart];
+
+
+//        NSArray *items = @[
+//                           [PNStackedBarChartDataItem dataItemWithValue:10 color:PNLightBlue],
+//                           [PNStackedBarChartDataItem dataItemWithValue:10 color:PNLightGreen],
+//                          [PNStackedBarChartDataItem dataItemWithValue:10 color:PNRed],
+//                           ];
+//
+//        self.horizontalStackedBarChart = [[PNHorizontalStackedBarChart alloc] initWithFrame:CGRectMake(25, 300, 200, 100) items:items];
+//        [self.horizontalStackedBarChart setXLabels:@[@"10%", @"10%", @"10%"]];
+//        [self.horizontalStackedBarChart setMaxValue:30.0];
+//        self.horizontalStackedBarChart.showLabel = NO;
+//        [self.horizontalStackedBarChart strokeChart];
+//        self.horizontalStackedBarChart.delegate = self;
+//        
+//        [viewController.view addSubview:stackedBarChartLabel];
+//        [viewController.view addSubview:self.horizontalStackedBarChart];
+//        viewController.title = @"Stacked Bar";
         
     }
     

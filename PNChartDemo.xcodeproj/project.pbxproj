@@ -31,6 +31,8 @@
 		9FE15DFB190BB014004129F5 /* PNLineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE15DF1190BB014004129F5 /* PNLineChart.m */; };
 		9FE15DFC190BB014004129F5 /* PNLineChartData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE15DF3190BB014004129F5 /* PNLineChartData.m */; };
 		9FE15DFD190BB014004129F5 /* PNLineChartDataItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE15DF5190BB014004129F5 /* PNLineChartDataItem.m */; };
+		BF26D57D19806C060085202E /* PNTextChart.m in Sources */ = {isa = PBXBuildFile; fileRef = BF26D57C19806C060085202E /* PNTextChart.m */; };
+		BF26D58119806D840085202E /* PNTextChartLabelItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BF26D58019806D840085202E /* PNTextChartLabelItem.m */; };
 		BF4FC9CE197E2E4000BDF982 /* PNHorizontalStackedBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4FC9CD197E2E4000BDF982 /* PNHorizontalStackedBar.m */; };
 		BF4FC9D1197E305B00BDF982 /* PNHorizontalStackedBarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4FC9D0197E305B00BDF982 /* PNHorizontalStackedBarChart.m */; };
 		BFBDEED1197B2D1600FE4348 /* PNStackedBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBDEECC197B2D1600FE4348 /* PNStackedBar.m */; };
@@ -93,6 +95,10 @@
 		9FE15DF3190BB014004129F5 /* PNLineChartData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNLineChartData.m; sourceTree = "<group>"; };
 		9FE15DF4190BB014004129F5 /* PNLineChartDataItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNLineChartDataItem.h; sourceTree = "<group>"; };
 		9FE15DF5190BB014004129F5 /* PNLineChartDataItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNLineChartDataItem.m; sourceTree = "<group>"; };
+		BF26D57B19806C060085202E /* PNTextChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNTextChart.h; sourceTree = "<group>"; };
+		BF26D57C19806C060085202E /* PNTextChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNTextChart.m; sourceTree = "<group>"; };
+		BF26D57F19806D840085202E /* PNTextChartLabelItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNTextChartLabelItem.h; sourceTree = "<group>"; };
+		BF26D58019806D840085202E /* PNTextChartLabelItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNTextChartLabelItem.m; sourceTree = "<group>"; };
 		BF4FC9CC197E2E4000BDF982 /* PNHorizontalStackedBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNHorizontalStackedBar.h; sourceTree = "<group>"; };
 		BF4FC9CD197E2E4000BDF982 /* PNHorizontalStackedBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNHorizontalStackedBar.m; sourceTree = "<group>"; };
 		BF4FC9CF197E305B00BDF982 /* PNHorizontalStackedBarChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNHorizontalStackedBarChart.h; sourceTree = "<group>"; };
@@ -230,6 +236,7 @@
 				9FE15DE1190BB014004129F5 /* PNBarChart */,
 				BFA2E6711977A96300EF7BAF /* PNStackedBarChart */,
 				BF4FC9CB197E2E0700BDF982 /* PNHorizontalStackedBarChart */,
+				BF26D57E19806C300085202E /* PNTextChart */,
 				9FE15DE6190BB014004129F5 /* PNChart.h */,
 				9FE15DE7190BB014004129F5 /* PNChartDelegate.h */,
 				9FE15DE8190BB014004129F5 /* PNChartLabel.h */,
@@ -273,6 +280,17 @@
 				9FE15DF5190BB014004129F5 /* PNLineChartDataItem.m */,
 			);
 			path = PNLineChart;
+			sourceTree = "<group>";
+		};
+		BF26D57E19806C300085202E /* PNTextChart */ = {
+			isa = PBXGroup;
+			children = (
+				BF26D57B19806C060085202E /* PNTextChart.h */,
+				BF26D57C19806C060085202E /* PNTextChart.m */,
+				BF26D57F19806D840085202E /* PNTextChartLabelItem.h */,
+				BF26D58019806D840085202E /* PNTextChartLabelItem.m */,
+			);
+			name = PNTextChart;
 			sourceTree = "<group>";
 		};
 		BF4FC9CB197E2E0700BDF982 /* PNHorizontalStackedBarChart */ = {
@@ -460,7 +478,9 @@
 				BF4FC9CE197E2E4000BDF982 /* PNHorizontalStackedBar.m in Sources */,
 				9FE15DF7190BB014004129F5 /* PNBarChart.m in Sources */,
 				BFBDEED3197B2D1600FE4348 /* PNStackedBarChartDataItem.m in Sources */,
+				BF26D57D19806C060085202E /* PNTextChart.m in Sources */,
 				F938F7E11917727E00B4448E /* PNPieChart.m in Sources */,
+				BF26D58119806D840085202E /* PNTextChartLabelItem.m in Sources */,
 				0AF7A878182AA9F6003645C4 /* PCAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
