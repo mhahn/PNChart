@@ -21,7 +21,7 @@
 - (id)initWithFrame:(CGRect)frame items:(NSArray *)items {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = [UIColor clearColor];
         self.clipsToBounds   = YES;
         _showLabel           = YES;
         _labelTextColor      = [UIColor grayColor];
