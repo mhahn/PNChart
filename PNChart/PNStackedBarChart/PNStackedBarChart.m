@@ -130,7 +130,7 @@
             currentTotal += item.value;
         }
 
-        float barHeight = MIN(currentTotal, chartCavanHeight);
+        float barHeight = (currentTotal/self.yMaxValue) * chartCavanHeight;
         bar = [[PNStackedBar alloc] initWithFrame:CGRectMake(barXPosition, self.frame.size.height - barHeight - xLabelHeight - self.chartMargin, barWidth, barHeight) items:items withMaxValue:currentTotal];
         
         //Change Bar Radius
