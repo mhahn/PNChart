@@ -13,6 +13,8 @@
 
 @interface PNTextChart() {
     NSMutableArray *_labels;
+    CGFloat _maxTopWidth;
+    CGFloat _maxBottomWidth;
 }
 
 @end
@@ -29,6 +31,8 @@
         _labels = [[NSMutableArray alloc] init];
         _topLabelWidth = 0;
         _bottomLabelWidth = 0;
+        _maxTopWidth = 0;
+        _maxBottomWidth = 0;
     }
     return self;
 }
@@ -74,8 +78,10 @@
 }
 
 - (void)strokeChart {
-    [self strokeLabelsForChart:self.topLabels labelWidth:self.topLabelWidth labelsIndex:1];
-    [self strokeLabelsForChart:self.bottomLabels labelWidth:self.bottomLabelWidth labelsIndex:2];
+    _maxTopWidth = MIN(self.frame.size.width/self.topLabels.count, self.topLabelWidth);
+    _maxBottomWidth = MIN(self.frame.size.width/self.bottomLabels.count, self.bottomLabelWidth);
+    [self strokeLabelsForChart:self.topLabels labelWidth:_maxTopWidth labelsIndex:1];
+    [self strokeLabelsForChart:self.bottomLabels labelWidth:_maxBottomWidth labelsIndex:2];
 }
 
 @end
