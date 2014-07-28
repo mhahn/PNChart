@@ -15,6 +15,7 @@
 - (id)initWithFrame:(CGRect)frame items:(NSArray *)items withMaxValue:(float)maxValue;
 
 @property (nonatomic, readonly) NSArray *items;
+@property (nonatomic, readonly) float maxValue;
 
 - (void)strokeBar;
 
