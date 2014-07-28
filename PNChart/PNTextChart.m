@@ -68,9 +68,7 @@
         } else {
             labelYPosition = (self.frame.size.height - item.labelHeight);
         }
-            
-        NSLog(@"labelXPosition: %f", labelXPosition);
-        NSLog(@"labelYPosition: %f", labelYPosition);
+
         label.center = CGPointMake(labelXPosition, labelYPosition);
         [_labels addObject:label];
         [self addSubview:label];
