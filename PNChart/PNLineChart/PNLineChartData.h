@@ -23,6 +23,7 @@ typedef PNLineChartDataItem *(^LCLineChartDataGetter)(NSUInteger item);
 @interface PNLineChartData : NSObject
 
 @property (strong) UIColor *color;
+@property (strong) UIColor *inflexionPointColor;
 @property NSUInteger itemCount;
 @property (copy) LCLineChartDataGetter getData;
 

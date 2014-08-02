@@ -308,7 +308,11 @@
         // setup the color of the chart line
         if (chartData.color) {
             chartLine.strokeColor = [chartData.color CGColor];
-            pointLayer.strokeColor = [chartData.color CGColor];
+            if (chartData.inflexionPointColor) {
+                pointLayer.strokeColor = [chartData.inflexionPointColor CGColor];
+            } else {
+                pointLayer.strokeColor = [chartData.color CGColor];
+            }
         }
         else {
             chartLine.strokeColor = [PNGreen CGColor];
