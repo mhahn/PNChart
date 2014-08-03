@@ -66,19 +66,33 @@
 {
     CGFloat yStep = (_yValueMax - _yValueMin) / _yLabelNum;
     CGFloat yStepHeight = _chartCavanHeight / _yLabelNum;
+    NSString *yLabelFormat = self.yLabelFormat ?: @"%1.f";
+    
+    if (yStep == 0.0) {
+        PNChartLabel *minLabel = [[PNChartLabel alloc] initWithFrame:CGRectMake(0.0, _chartCavanHeight, _chartMargin, _yLabelHeight)];
+        minLabel.text = [NSString stringWithFormat:yLabelFormat, 0.0];
+        [self addSubview:minLabel];
+        
+        PNChartLabel *midLabel = [[PNChartLabel alloc] initWithFrame:CGRectMake(0.0, _chartCavanHeight/2, _chartMargin, _yLabelHeight)];
+        midLabel.text = [NSString stringWithFormat:yLabelFormat, _yValueMax];
+        [self addSubview:midLabel];
+        
+        PNChartLabel *maxLabel = [[PNChartLabel alloc] initWithFrame:CGRectMake(0.0, 0.0, _chartMargin, _yLabelHeight)];
+        maxLabel.text = [NSString stringWithFormat:yLabelFormat, _yValueMax * 2];
+        [self addSubview:maxLabel];
+        
+    } else {
+        NSInteger index = 0;
+        NSInteger num = _yLabelNum + 1;
 
-
-    NSInteger index = 0;
-    NSInteger num = _yLabelNum + 1;
-
-    while (num > 0) {
-        PNChartLabel *label = [[PNChartLabel alloc] initWithFrame:CGRectMake(0.0, (_chartCavanHeight - index * yStepHeight), _chartMargin, _yLabelHeight)];
-        [label setTextAlignment:NSTextAlignmentRight];
-        NSString *yLabelFormat = self.yLabelFormat ? self.yLabelFormat : @"%1.f";
-        label.text = [NSString stringWithFormat:yLabelFormat, _yValueMin + (yStep * index)];
-        [self addSubview:label];
-        index += 1;
-        num -= 1;
+        while (num > 0) {
+            PNChartLabel *label = [[PNChartLabel alloc] initWithFrame:CGRectMake(0.0, (_chartCavanHeight - index * yStepHeight), _chartMargin, _yLabelHeight)];
+            [label setTextAlignment:NSTextAlignmentRight];
+            label.text = [NSString stringWithFormat:yLabelFormat, _yValueMin + (yStep * index)];
+            [self addSubview:label];
+            index += 1;
+            num -= 1;
+        }
     }
 }
 
@@ -225,7 +239,11 @@
             
             yValue = chartData.getData(i).y;
 
-            innerGrade = (yValue - _yValueMin) / (_yValueMax - _yValueMin);
+            if (!(_yValueMax - _yValueMin)) {
+                innerGrade = 0.5;
+            } else {
+                innerGrade = (yValue - _yValueMin) / (_yValueMax - _yValueMin);
+            }
             
             int x = 2 * _chartMargin +  (i * _xLabelWidth);
             int y = _chartCavanHeight - (innerGrade * _chartCavanHeight) + (_yLabelHeight / 2);
