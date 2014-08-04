@@ -89,7 +89,7 @@
             PNChartLabel *label = [[PNChartLabel alloc] initWithFrame:CGRectMake(0.0, (_chartCavanHeight - index * yStepHeight), _chartMargin, _yLabelHeight)];
             [label setTextAlignment:NSTextAlignmentRight];
             label.text = [NSString stringWithFormat:yLabelFormat, _yValueMin + (yStep * index)];
-            [label setFont:self.labelFont];
+            [label setFont:self.yLabelFont];
             [self addSubview:label];
             index += 1;
             num -= 1;
@@ -111,7 +111,7 @@
             PNChartLabel *label = [[PNChartLabel alloc] initWithFrame:CGRectMake(2 * _chartMargin +  (index * _xLabelWidth) - (_xLabelWidth / 2), 15 + _chartCavanHeight, _xLabelWidth, _chartMargin)];
             [label setTextAlignment:NSTextAlignmentCenter];
             label.text = labelText;
-            [label setFont:self.labelFont];
+            [label setFont:self.xLabelFont];
             [self addSubview:label];
         }
     }

@@ -49,7 +49,8 @@
 
 @property (nonatomic) BOOL showLabel;
 
-@property (nonatomic, strong) UIFont *labelFont;
+@property (nonatomic, strong) UIFont *yLabelFont;
+@property (nonatomic, strong) UIFont *xLabelFont;
 
 
 /**
