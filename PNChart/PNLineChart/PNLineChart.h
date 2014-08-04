@@ -49,6 +49,8 @@
 
 @property (nonatomic) BOOL showLabel;
 
+@property (nonatomic, strong) UIFont *labelFont;
+
 
 /**
  *  show CoordinateAxis ornot, Default is not
