@@ -457,20 +457,20 @@
         // draw coordinate axis
         CGContextMoveToPoint(ctx, _chartMargin + yAsixOffset, 0);
         CGContextAddLineToPoint(ctx, _chartMargin + yAsixOffset, yAxisHeight);
-        CGContextAddLineToPoint(ctx, xAxisWidth, yAxisHeight);
+//        CGContextAddLineToPoint(ctx, xAxisWidth, yAxisHeight);
         CGContextStrokePath(ctx);
         
         // draw y axis arrow
-        CGContextMoveToPoint(ctx, _chartMargin + yAsixOffset - 3, 6);
-        CGContextAddLineToPoint(ctx, _chartMargin + yAsixOffset, 0);
-        CGContextAddLineToPoint(ctx, _chartMargin + yAsixOffset + 3, 6);
-        CGContextStrokePath(ctx);
+//        CGContextMoveToPoint(ctx, _chartMargin + yAsixOffset - 3, 6);
+//        CGContextAddLineToPoint(ctx, _chartMargin + yAsixOffset, 0);
+//        CGContextAddLineToPoint(ctx, _chartMargin + yAsixOffset + 3, 6);
+//        CGContextStrokePath(ctx);
 
         // draw x axis arrow
-        CGContextMoveToPoint(ctx, xAxisWidth - 6, yAxisHeight - 3);
-        CGContextAddLineToPoint(ctx, xAxisWidth, yAxisHeight);
-        CGContextAddLineToPoint(ctx, xAxisWidth - 6, yAxisHeight + 3);
-        CGContextStrokePath(ctx);
+//        CGContextMoveToPoint(ctx, xAxisWidth - 6, yAxisHeight - 3);
+//        CGContextAddLineToPoint(ctx, xAxisWidth, yAxisHeight);
+//        CGContextAddLineToPoint(ctx, xAxisWidth - 6, yAxisHeight + 3);
+//        CGContextStrokePath(ctx);
         
         if (self.showLabel) {
             
@@ -484,13 +484,13 @@
             }
             
             // draw y axis separator
-            CGFloat yStepHeight = _chartCavanHeight / _yLabelNum;
-            for (NSUInteger i = 0; i < [self.xLabels count]; i++) {
-                point = CGPointMake(_chartMargin + yAsixOffset, (_chartCavanHeight - i * yStepHeight + _yLabelHeight/2));
-                CGContextMoveToPoint(ctx, point.x, point.y);
-                CGContextAddLineToPoint(ctx, point.x + 2, point.y);
-                CGContextStrokePath(ctx);
-            }
+//            CGFloat yStepHeight = _chartCavanHeight / _yLabelNum;
+//            for (NSUInteger i = 0; i < [self.xLabels count]; i++) {
+//                point = CGPointMake(_chartMargin + yAsixOffset, (_chartCavanHeight - i * yStepHeight + _yLabelHeight/2));
+//                CGContextMoveToPoint(ctx, point.x, point.y);
+//                CGContextAddLineToPoint(ctx, point.x + 2, point.y);
+//                CGContextStrokePath(ctx);
+//            }
         }
         
         UIFont *font = [UIFont systemFontOfSize:11];
