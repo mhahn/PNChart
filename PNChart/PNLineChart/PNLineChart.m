@@ -107,7 +107,7 @@
 
         for (int index = 0; index < xLabels.count; index++) {
             labelText = xLabels[index];
-            PNChartLabel *label = [[PNChartLabel alloc] initWithFrame:CGRectMake(2 * _chartMargin +  (index * _xLabelWidth) - (_xLabelWidth / 2), _chartMargin + _chartCavanHeight, _xLabelWidth, _chartMargin)];
+            PNChartLabel *label = [[PNChartLabel alloc] initWithFrame:CGRectMake(2 * _chartMargin +  (index * _xLabelWidth) - (_xLabelWidth / 2), 15 + _chartCavanHeight, _xLabelWidth, _chartMargin)];
             [label setTextAlignment:NSTextAlignmentCenter];
             label.text = labelText;
             [self addSubview:label];
